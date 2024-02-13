@@ -33,6 +33,7 @@ def uniquify(path, sep=''):
     return filename
 
 
+
 def shouldRun():
     click.secho('Will run analysis in 1 second, press any key to cancel', fg='green')
     i, o, e = select.select([sys.stdin], [], [], 1)
@@ -41,6 +42,7 @@ def shouldRun():
         return False
     else:
         return True
+
 
 
 @click.command()
@@ -66,6 +68,7 @@ def main(filename, temp):
     if r:
         os.system(f'{GHIDRA_PATH}support/analyzeHeadless {out_dir} "{proj_name}" -import "{filename}"')
         os.system(f'{GHIDRA_PATH}ghidraRun "{proj_file}"')
+
 
 
 if __name__ == '__main__':
